@@ -33,4 +33,10 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t sharad1210/hello-world-java-demo:0.0.3.Release .
+
+    - name: Push Docker Image
+      run: docker push sharad1210/github-actions-docker-java-app:0.0.3.Release
+      
+    - name: Deploy to Prod Environment
+      run: docker run -p 5000:5000 sharad1210/github-actions-docker-java-app:0.0.3.Release
    
